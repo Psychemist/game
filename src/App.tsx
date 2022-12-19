@@ -4,14 +4,33 @@ import './App.css';
 import SignUp from './components/SignUp';
 import Ranking from './components/Ranking';
 import FriendList from './components/FriendList';
+import Game from './components/Game';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <SignUp />
-      <FriendList />
+    <Provider store={store}>
+      <div className="App">
 
-    </div>
+        <BrowserRouter>
+          <div>
+            <Link to="game" className="link" > Game </Link>
+            <Link to="friend" className="link" > Friend </Link>
+          </div>
+
+          <Routes>
+            <Route path='/' element={<SignUp />} />
+            <Route path='/game' element={<Game />} />
+            <Route path='/friend' element={<FriendList />} />
+          </Routes>
+        </BrowserRouter>
+
+
+      </div>
+    </Provider>
+
   );
 }
 

@@ -1,23 +1,25 @@
 import React, { createRef } from 'react'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { fetchLogin } from '../redux/user/thunk';
 
 export default function SignUp() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const nameRef = createRef<any>();
 
-  const onClickSignUp = async () => {
+  const onSignUp = async () => {
     try {
-      const res = await fetch(`localhost:8080/user`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: nameRef
-        }),
-      });
-      if (res.ok) {
-        console.log("successfully create user")
-      } else {
-        console.log("create user failed")
+      console.log("onclick sign up")
+      console.log("apply :", nameRef.current.value);
+      const username = nameRef.current.value
 
-      }
+      await dispatch(fetchLogin({
+        username: username
+      })).unwrap();
+
+      navigate("/game")
+
     } catch (e) {
       console.log(e);
     }
@@ -27,20 +29,19 @@ export default function SignUp() {
 
 
   return (
-    <div>
+    <>
 
       name : <input ref={nameRef} type="text" />
 
       <button
         onClick={() => {
-          console.log("apply :", nameRef.current.value);
-          onClickSignUp()
+          onSignUp()
         }}
       >
-        Sign up
+        Create Account and Start a Game!
       </button>
 
 
-    </div>
+    </>
   )
 }

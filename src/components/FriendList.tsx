@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import FriendListItem from './FriendListItem';
 import { friendListFromDB } from '../utils/friendListFromDB';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
 
 
 export default function FriendList() {
 
   const [friendList, setFriendList] = useState<any[]>([])
+  const userId = useSelector((state: RootState) => state.user.id);
+
+  console.log("userId: ", userId)
+
 
   useEffect(() => {
     const getAllFriends = async () => {
       try {
-        // const res = await fetch(`localhost:8080/user/<userid>/friends`, {
+        // const res = await fetch('http://localhost:8000/user/<userid>/friends', {
         //   method: 'PUT',
         //   headers: { 'Content-Type': 'application/json' },
         //   body: JSON.stringify({
@@ -43,7 +49,7 @@ export default function FriendList() {
       Top 10 Players:
 
       {friendList.map((item: any) => (
-        <FriendListItem items={item} />
+        <FriendListItem items={item} key={item.id} />
       ))}
 
     </div>
