@@ -2,6 +2,10 @@ import React, { createRef } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchLogin } from '../redux/user/thunk';
+import "../css/signup.css"
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 
 export default function SignUp() {
   const dispatch = useDispatch()
@@ -29,19 +33,18 @@ export default function SignUp() {
 
 
   return (
-    <>
-
+    <div className="page-container">
       name : <input ref={nameRef} type="text" />
 
-      <button
+      <Button variant="contained" color="success"
         onClick={() => {
           onSignUp()
         }}
       >
-        Create Account and Start a Game!
-      </button>
+        Start a Game!
+      </Button>
 
 
-    </>
+    </div>
   )
 }

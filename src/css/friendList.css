@@ -1,4 +1,38 @@
-.friendItem {
-  margin: 30px,
+.friendListContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
+}
+
+.friendItem {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 20px 10px 20px;
+  height: 40px;
+  width: 70vw;
+}
+
+.left-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  margin-left: 10%;
+}
+
+.name-wrapper {
+  width: 50%;
+}
+
+.score-wrapper {
+  width: 50%;
+}
+
+.right-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  margin-left: 10%;
 }

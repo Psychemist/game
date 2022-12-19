@@ -1,6 +1,10 @@
+import Button from '@mui/material/Button';
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
+import "../css/community.css"
+import Card from '@mui/material/Card';
+
 
 interface Props {
   items: any;
@@ -29,17 +33,12 @@ export default function CommunityItem(props: Props) {
 
 
   return (
-    <>
-      <div>
-        {props.items.name}
-      </div>
-      <div>
-        {props.items.score}
-      </div>
-      <div style={{ backgroundColor: "pink", height: 50, width: 50 }}
-        onClick={onAddFriend}>
-      </div>
+    <Card className="community-item">
 
-    </>
+      <div className="name-wrapper">{props.items.name}</div>
+      <div className="score-wrapper">{props.items.score}</div>
+      <Button variant="contained" color="success" size="small" onClick={onAddFriend}>Add Friend</Button>
+
+    </Card>
   )
 }

@@ -1,3 +1,5 @@
+import Card from '@mui/material/Card';
+import Slide from '@mui/material/Slide';
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
@@ -27,25 +29,21 @@ export default function Community() {
   };
 
 
-
   return (
-    <>
-      <div>
-        <div>
-          ID
-        </div>
-        <div>
-          Name
-        </div>
+    <div className="community">
 
-      </div>
-      <div>
-        All Users:
+      <Card className="table-header">
+        <div className="name-wrapper" >Name</div>
+        <div className="score-wrapper">Score</div>
+        <div className="empty-wrapper"></div>
+      </Card>
+
+      <div className="community-item-container">
         {users.map((item: any) => (
           <CommunityItem items={item} key={`user_${item.id}`} />
         ))
         }
       </div>
-    </>
+    </div>
   )
 }

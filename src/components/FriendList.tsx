@@ -3,6 +3,8 @@ import FriendListItem from './FriendListItem';
 import { friendListFromDB } from '../utils/friendListFromDB';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
+import "../css/friendList.css"
+
 
 
 export default function FriendList() {
@@ -36,8 +38,7 @@ export default function FriendList() {
 
 
   return (
-    <div>
-      Top 10 Players:
+    <div className="friendListContainer">
 
       {friendList.map((item: any) => (
         <FriendListItem items={item} key={`friend_${item.user_friend_id}`} />

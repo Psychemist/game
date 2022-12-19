@@ -14,7 +14,7 @@ function App() {
       <div className="App">
 
         <BrowserRouter>
-          <div>
+          <div className="navbar">
             <Link to="game" className="link" > Game </Link>
             <Link to="friend" className="link" > Friend </Link>
             <Link to="community" className="link" > Community </Link>
