@@ -10,7 +10,7 @@ export default function FriendListItem(props: Props) {
   return (
     <div className="friendItem">
       Name: {props.items.name}
-      HighScore: {props.items.highscore}
+      Highest Score: {props.items.score}
     </div>
   )
 }

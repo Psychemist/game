@@ -1,8 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SignUp from './components/SignUp';
-import Ranking from './components/Ranking';
+import Community from './components/Community';
 import FriendList from './components/FriendList';
 import Game from './components/Game';
 import { Provider } from 'react-redux';
@@ -18,12 +17,14 @@ function App() {
           <div>
             <Link to="game" className="link" > Game </Link>
             <Link to="friend" className="link" > Friend </Link>
+            <Link to="community" className="link" > Community </Link>
           </div>
 
           <Routes>
             <Route path='/' element={<SignUp />} />
             <Route path='/game' element={<Game />} />
             <Route path='/friend' element={<FriendList />} />
+            <Route path='/community' element={<Community />} />
           </Routes>
         </BrowserRouter>
 
